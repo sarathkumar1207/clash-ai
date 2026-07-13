@@ -1,4 +1,4 @@
-﻿use crate::domain::{ClanSummary, PlayerProfile};
+use crate::domain::{ClanSummary, PlayerProfile};
 use async_trait::async_trait;
 
 #[async_trait]
@@ -8,12 +8,16 @@ pub trait ClashApi: Send + Sync {
 }
 
 #[derive(Clone)]
-pub struct OfficialClashClient { base_url: String, token: String }
+pub struct OfficialClashClient {
+    base_url: String,
+    token: String,
+}
 
 impl OfficialClashClient {
     pub fn from_env() -> anyhow::Result<Self> {
         Ok(Self {
-            base_url: std::env::var("CLASH_API_BASE_URL").unwrap_or_else(|_| "https://api.clashofclans.com/v1".into()),
+            base_url: std::env::var("CLASH_API_BASE_URL")
+                .unwrap_or_else(|_| "https://api.clashofclans.com/v1".into()),
             token: std::env::var("CLASH_API_TOKEN")?,
         })
     }
@@ -26,7 +30,11 @@ impl ClashApi for OfficialClashClient {
         let value: serde_json::Value = reqwest::Client::new()
             .get(format!("{}/players/{}", self.base_url, encoded))
             .bearer_auth(&self.token)
-            .send().await?.error_for_status()?.json().await?;
+            .send()
+            .await?
+            .error_for_status()?
+            .json()
+            .await?;
         Ok(PlayerProfile {
             tag: value["tag"].as_str().unwrap_or(tag).to_string(),
             name: value["name"].as_str().unwrap_or("Unknown").to_string(),
@@ -41,7 +49,11 @@ impl ClashApi for OfficialClashClient {
         let value: serde_json::Value = reqwest::Client::new()
             .get(format!("{}/clans/{}", self.base_url, encoded))
             .bearer_auth(&self.token)
-            .send().await?.error_for_status()?.json().await?;
+            .send()
+            .await?
+            .error_for_status()?
+            .json()
+            .await?;
         Ok(ClanSummary {
             tag: value["tag"].as_str().unwrap_or(tag).to_string(),
             name: value["name"].as_str().unwrap_or("Unknown clan").to_string(),
