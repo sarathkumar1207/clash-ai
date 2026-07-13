@@ -1,0 +1,70 @@
+﻿:root {
+  color-scheme: dark;
+  --bg: #07090f;
+  --panel: #121723;
+  --panel-2: #17202e;
+  --text: #f4f7fb;
+  --muted: #aeb9c8;
+  --line: rgba(255,255,255,.12);
+  --green: #65d488;
+  --gold: #ffd166;
+  --red: #ff6b6b;
+  --blue: #74b9ff;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; background: radial-gradient(circle at top left, rgba(101,212,136,.18), transparent 28rem), radial-gradient(circle at 80% 20%, rgba(116,185,255,.16), transparent 24rem), var(--bg); color: var(--text); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+a { color: inherit; text-decoration: none; }
+.shell { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+.topbar { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0; background: rgba(7,9,15,.82); backdrop-filter: blur(18px); }
+.brand, .navlinks, .actions, .trustbar, .input-row { display: flex; align-items: center; gap: 12px; }
+.brand { font-weight: 800; letter-spacing: .02em; }
+.mark { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 8px; background: linear-gradient(135deg, var(--green), var(--blue)); color: #061018; }
+.navlinks { color: var(--muted); font-size: 14px; }
+.navlinks a:hover { color: var(--text); }
+.github, .primary, .secondary, button { border: 1px solid var(--line); border-radius: 8px; padding: 11px 14px; font-weight: 700; cursor: pointer; }
+.github, .secondary { color: var(--text); background: rgba(255,255,255,.06); }
+.primary, button { background: var(--green); color: #061018; border-color: transparent; }
+.hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(340px, .95fr); gap: 38px; align-items: center; min-height: calc(100vh - 74px); padding: 54px 0 74px; }
+.eyebrow { margin: 0 0 12px; color: var(--green); text-transform: uppercase; font-weight: 800; font-size: 12px; letter-spacing: .14em; }
+h1 { margin: 0; font-size: clamp(54px, 9vw, 118px); line-height: .88; letter-spacing: 0; }
+h2 { margin: 0; font-size: clamp(28px, 4vw, 48px); line-height: 1.04; letter-spacing: 0; }
+h3 { margin: 0 0 10px; font-size: 20px; }
+.lede { max-width: 690px; color: var(--muted); font-size: clamp(18px, 2.1vw, 23px); line-height: 1.55; }
+.trustbar { flex-wrap: wrap; margin-top: 28px; color: var(--muted); }
+.trustbar span { border: 1px solid var(--line); border-radius: 999px; padding: 8px 11px; background: rgba(255,255,255,.04); }
+.console, .panel, .feature-grid article, .lanes div, .roadmap li { border: 1px solid var(--line); border-radius: 8px; background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.035)); box-shadow: 0 24px 70px rgba(0,0,0,.28); }
+.console { padding: 18px; }
+.console-head { display: flex; gap: 7px; margin-bottom: 16px; }
+.console-head span { width: 11px; height: 11px; border-radius: 50%; background: var(--red); }
+.console-head span:nth-child(2) { background: var(--gold); }
+.console-head span:nth-child(3) { background: var(--green); }
+.coach-card, .chat-line { background: #0d1320; border: 1px solid var(--line); border-radius: 8px; padding: 18px; }
+.coach-card b, .chat-line span { display: block; color: var(--green); font-size: 12px; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 10px; }
+.coach-card strong { display: block; font-size: 26px; margin-bottom: 8px; }
+.coach-card p, article p, .lanes p, .metric span, .roadmap span { color: var(--muted); line-height: 1.55; margin: 0; }
+.coach-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 14px 0; }
+.coach-grid div, .metric { background: rgba(255,255,255,.05); border: 1px solid var(--line); border-radius: 8px; padding: 14px; }
+small { color: var(--muted); }
+.coach-grid b, .metric strong { display: block; font-size: 30px; margin-top: 6px; }
+.section { padding: 78px 0; }
+.section-head { max-width: 760px; margin-bottom: 28px; }
+.feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.feature-grid article { padding: 22px; }
+.feature-grid span { display: inline-block; color: var(--gold); margin-bottom: 22px; font-weight: 900; }
+.dashboard { display: grid; grid-template-columns: 370px 1fr; gap: 18px; padding: 54px 0; }
+.panel { padding: 22px; }
+.lookup label { display: block; color: var(--muted); margin: 20px 0 8px; }
+input { min-width: 0; width: 100%; color: var(--text); border: 1px solid var(--line); border-radius: 8px; padding: 13px; background: #0b111c; font: inherit; }
+.result { margin-top: 16px; padding: 16px; border-radius: 8px; background: rgba(101,212,136,.1); border: 1px solid rgba(101,212,136,.28); }
+.result b, .result span { display: block; }
+.result span { color: var(--muted); margin-top: 5px; line-height: 1.45; }
+.metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.chart { grid-column: 1 / -1; height: 210px; display: flex; align-items: end; gap: 12px; padding: 20px; background: #0d1320; border: 1px solid var(--line); border-radius: 8px; }
+.chart i { flex: 1; min-width: 18px; border-radius: 6px 6px 0 0; background: linear-gradient(180deg, var(--green), var(--blue)); }
+.lanes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.lanes div { padding: 20px; }
+.roadmap ol { list-style: none; padding: 0; display: grid; gap: 12px; }
+.roadmap li { display: grid; grid-template-columns: 110px 1fr; gap: 20px; padding: 18px; }
+@media (max-width: 900px) { .navlinks { display: none; } .hero, .dashboard { grid-template-columns: 1fr; } .feature-grid, .lanes, .metrics { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) { .shell { width: min(100% - 22px, 1180px); } .topbar { gap: 10px; } .github { display: none; } .hero { padding-top: 32px; } .actions, .input-row { align-items: stretch; flex-direction: column; } .feature-grid, .lanes, .metrics, .coach-grid { grid-template-columns: 1fr; } .roadmap li { grid-template-columns: 1fr; gap: 6px; } }

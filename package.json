@@ -1,0 +1,27 @@
+﻿{
+  "name": "clash-ai",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/build-static.mjs --watch",
+    "build": "node scripts/build-static.mjs",
+    "test": "node scripts/build-static.mjs --check"
+  },
+  "engines": { "node": ">=22.13.0" },
+  "dependencies": {
+    "@tanstack/react-query": "latest",
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "typescript": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-router-dom": "latest",
+    "zustand": "latest",
+    "tailwindcss": "latest"
+  },
+  "devDependencies": {
+    "@testing-library/react": "latest",
+    "vitest": "latest"
+  }
+}
